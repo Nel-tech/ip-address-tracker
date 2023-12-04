@@ -1,0 +1,173 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "Rubik", sans-serif;
+}
+.container {
+  max-width: 1250px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+main {
+  background-image: url(/images/pattern-bg-desktop.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  position: relative;
+}
+.heading1 h1 {
+  color: white;
+  text-align: center;
+  padding-top: 1rem;
+}
+/* .input-text {
+  border-radius: 10px;
+  width: 30%;
+  padding: 0.9rem;
+  border: none;
+  position: relative;
+}
+
+.input-container {
+  position: relative;
+}
+.btn-go {
+  background-color: black;
+  padding: 1.63rem 1rem;
+  border: none;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  transform: rotate(90deg);
+  position: static;
+  left: 20.1rem;
+  top: -0.8rem;
+}
+.arrow-right {
+  transform: rotate(-90deg);
+} */
+
+.input-text {
+  border-radius: 10px 0 0 10px;
+  width: 30%;
+  padding: 0.9rem;
+  border: none;
+  cursor: pointer;
+}
+input::placeholder {
+  color: hsl(0, 0%, 59%);
+}
+.input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2rem;
+  justify-content: center;
+}
+
+.btn-go {
+  background-color: black;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+}
+
+.arrow-right {
+  transform: rotate(0deg);
+  fill: white; /* Change the color of the arrow if needed */
+}
+.error-el {
+  position: absolute;
+  top: 6rem;
+  left: 27rem;
+  display: none;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  position: relative;
+}
+.flex-container h5 {
+  color: hsl(0, 0%, 59%);
+  font-size: 10px;
+}
+.flex-container p {
+  color: hsl(0, 0%, 17%);
+  font-size: 17px;
+  margin-top: 1rem;
+  font-weight: bolder;
+}
+.line {
+  border: 0.9px solid hsl(0, 0%, 59%);
+  height: 50px;
+  margin-top: 1rem;
+}
+.background-container {
+  background-color: white;
+  border: 1px solid white;
+  z-index: 100000;
+  border-radius: 10px;
+  width: 59%;
+  height: 95px;
+  left: 23%;
+  top: 13rem;
+  position: absolute;
+}
+#container-map {
+  width: 100%;
+  height: 400px;
+
+  position: absolute;
+}
+@media (max-width: 768px) {
+  .input-text {
+    width: 50%;
+  }
+  .background-container {
+    width: 75%;
+    height: 95px;
+    left: 15%;
+  }
+}
+@media (max-width: 425px) {
+  main {
+    background-image: url(/images/pattern-bg-mobile.png);
+  }
+  .input-text {
+    width: 80%;
+  }
+  .flex-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .line {
+    display: none;
+  }
+  .background-container {
+    width: 70%;
+    height: 295px;
+    left: 15%;
+  }
+  h5 {
+    font-size: 12px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .flex-container p {
+    font-size: 20px;
+  }
+}
