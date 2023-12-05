@@ -26,31 +26,6 @@ main {
   text-align: center;
   padding-top: 1rem;
 }
-/* .input-text {
-  border-radius: 10px;
-  width: 30%;
-  padding: 0.9rem;
-  border: none;
-  position: relative;
-}
-
-.input-container {
-  position: relative;
-}
-.btn-go {
-  background-color: black;
-  padding: 1.63rem 1rem;
-  border: none;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  transform: rotate(90deg);
-  position: static;
-  left: 20.1rem;
-  top: -0.8rem;
-}
-.arrow-right {
-  transform: rotate(-90deg);
-} */
 
 .input-text {
   border-radius: 10px 0 0 10px;
@@ -85,12 +60,16 @@ input::placeholder {
   transform: rotate(0deg);
   fill: white; /* Change the color of the arrow if needed */
 }
+
 .error-el {
   position: absolute;
-  top: 6rem;
+  top: 5rem;
   left: 27rem;
+  color: red;
+  font-size: 15px;
   display: none;
 }
+
 .flex-container {
   display: flex;
   justify-content: space-evenly;
@@ -140,6 +119,9 @@ input::placeholder {
     height: 95px;
     left: 15%;
   }
+  .error-el {
+    left: 12rem;
+  }
 }
 @media (max-width: 425px) {
   main {
@@ -156,6 +138,9 @@ input::placeholder {
   }
   .line {
     display: none;
+  }
+  .error-el {
+    left: 2rem;
   }
   .background-container {
     width: 70%;
