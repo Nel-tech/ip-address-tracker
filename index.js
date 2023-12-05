@@ -18,11 +18,19 @@ async function fetchData(ipAddress) {
       loccontainer.textContent = `${data.location.city}, ${data.location.country} ${data.location.postalCode}`;
       zonecontainer.textContent = `UTC ${data.location.timezone}`;
       ispcontainer.textContent = data.isp;
+      errorEL.style.display = "none";
+      errorEL.textContent = "";
+
       return data;
     } else {
-      throw new Error(
-        `Network response was not ok. Status: ${response.status} ${response.statusText}`
-      );
+      errorEL.style.display = "block";
+      errorEL.textContent = "INVALID IP-ADDRESS";
+      ipcontainer.textContent = "";
+      loccontainer.textContent = "";
+      zonecontainer.textContent = "";
+      ispcontainer.textContent = "";
+
+      return null;
     }
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -58,8 +66,11 @@ L.tileLayer(`https://tile.openstreetmap.org/{z}/{x}/{y}.png`, {
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(mapcontainer);
 
+function markerFunction() {}
+
 async function handleFormSubmission(event) {
   event.preventDefault();
+
   const ipAddress = document.querySelector(".input-text").value;
   const data = await fetchData(ipAddress);
 
@@ -73,10 +84,9 @@ async function handleFormSubmission(event) {
       popupAnchor: [-3, -76],
     });
 
-    // Add a marker with the custom black icon to the map
     L.marker([data.location.lat, data.location.lng], { icon: blackIcon })
       .addTo(mapcontainer)
-      .bindPopup("Location");
+      .bindPopup(data.ip);
   }
 }
 
@@ -95,9 +105,8 @@ window.onload = async () => {
       popupAnchor: [-3, -76],
     });
 
-    // Add a marker with the custom black icon to the map
     L.marker([data.location.lat, data.location.lng], { icon: blackIcon })
       .addTo(mapcontainer)
-      .bindPopup("Location");
+      .bindPopup(data.ip);
   }
 };
